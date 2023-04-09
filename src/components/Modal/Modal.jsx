@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 
 const Modal = () => {
   const { modalImage, closeModal } = useModal();
+
+  // handle Escape to close modal window
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.key === 'Escape') {
@@ -14,6 +16,7 @@ const Modal = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
+    // eslint-disable-next-line
   }, []);
 
   return modalImage !== null ? (
